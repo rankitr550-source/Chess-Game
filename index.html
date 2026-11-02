@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Chess</title>
+    <link rel="stylesheet" href="Chess.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="brand">
+                <div class="crown">♛</div>
+                <div>
+                    <h1>Royal Chess</h1>
+                    <p>Classic Chess Arena</p>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                <span id="turnText">White's Turn</span>
+            </div>
+        </header>
+
+        <main class="game-area">
+            <aside class="side-panel">
+                <div class="player-card active" id="whiteCard">
+                    <div class="player-icon">♔</div>
+                    <div class="player-info">
+                        <span>PLAYER 1</span>
+                        <strong>White</strong>
+                    </div>
+                    <div class="timer" id="whiteTimer">10:00</div>
+                </div>
+
+                <div class="captured-card">
+                    <h3>Captured by White</h3>
+                    <div id="whiteCaptured" class="captured-pieces">None</div>
+                </div>
+
+                <div class="captured-card">
+                    <h3>Captured by Black</h3>
+                    <div id="blackCaptured" class="captured-pieces">None</div>
+                </div>
+            </aside>
+
+            <section class="board-section">
+                <div class="board-wrapper">
+                    <div class="files top-files">
+                        <span>a</span><span>b</span><span>c</span><span>d</span>
+                        <span>e</span><span>f</span><span>g</span><span>h</span>
+                    </div>
+
+                    <div class="board-row">
+                        <div class="ranks">
+                            <span>8</span><span>7</span><span>6</span><span>5</span>
+                            <span>4</span><span>3</span><span>2</span><span>1</span>
+                        </div>
+
+                        <div id="board" class="board"></div>
+
+                        <div class="ranks right-ranks">
+                            <span>8</span><span>7</span><span>6</span><span>5</span>
+                            <span>4</span><span>3</span><span>2</span><span>1</span>
+                        </div>
+                    </div>
+
+                    <div class="files bottom-files">
+                        <span>a</span><span>b</span><span>c</span><span>d</span>
+                        <span>e</span><span>f</span><span>g</span><span>h</span>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="side-panel right-panel">
+                <div class="player-card" id="blackCard">
+                    <div class="player-icon">♚</div>
+                    <div class="player-info">
+                        <span>PLAYER 2</span>
+                        <strong>Black</strong>
+                    </div>
+                    <div class="timer" id="blackTimer">10:00</div>
+                </div>
+
+                <div class="moves-card">
+                    <div class="moves-header">
+                        <h3>Move History</h3>
+                        <span id="moveCount">0 moves</span>
+                    </div>
+
+                    <div id="moveHistory" class="move-history">
+                        <div class="empty-history">Make your first move</div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <div class="controls">
+            <button id="newGameBtn"><span>↻</span> New Game</button>
+            <button id="undoBtn"><span>↶</span> Undo Move</button>
+            <button id="soundBtn"><span>🔊</span> Sound On</button>
+        </div>
+
+        <footer>
+            <span>♔</span>
+            Royal Chess
+            <span>•</span>
+            Built with HTML, CSS & JavaScript
+        </footer>
+    </div>
+
+    <div id="promotionModal" class="modal hidden">
+        <div class="modal-box">
+            <h2>Pawn Promotion</h2>
+            <p>Choose your new piece</p>
+            <div class="promotion-options">
+                <button data-piece="q">♛</button>
+                <button data-piece="r">♜</button>
+                <button data-piece="b">♝</button>
+                <button data-piece="n">♞</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameOverModal" class="modal hidden">
+        <div class="modal-box game-over-box">
+            <div class="winner-icon">🏆</div>
+            <h2 id="winnerTitle">White Wins!</h2>
+            <p id="winnerMessage">Congratulations!</p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script type="module" src="Chess.js"></script>
+</body>
+</html>
